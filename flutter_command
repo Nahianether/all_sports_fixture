@@ -1,0 +1,26 @@
+Flutter Command List:-
+
+Native Splash Screen Create and Remove Command:
+flutter pub run flutter_native_splash:create
+flutter pub run flutter_native_splash:remove
+
+Launcher Icon Create Command:
+flutter pub run flutter_launcher_icons:main
+
+Build Runner Command:
+flutter pub run build_runner build --delete-conflicting-outputs
+
+APK Release Command:
+flutter build apk --release
+
+APK Split Build Command:
+flutter build apk --split-per-abi --release --split-debug-info=.
+
+App Bundle Release Command:
+flutter build appbundle --release
+
+jks file generate Command:
+keytool -list -v -alias (Your alias name)(ex-probashi) -keystore (jks path)(ex-/home/jahid007/Projects/probashi/android/app/upload-keystore).jks
+
+Flutter pubspec upgrade Command:
+flutter pub upgrade
