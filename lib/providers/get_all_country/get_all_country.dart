@@ -8,10 +8,13 @@ class GetCountryProvider extends ChangeNotifier {
 
   Future<GetCountryList?> getAllCountry() async {
     await getAllCountryListApi().then((value) {
-      getAllCountryList == null
-          ? getAllCountryList = value
-          : getAllCountryList = getAllCountryList;
-      notifyListeners();
+      if (getAllCountryList == null) {
+        getAllCountryList = value;
+        notifyListeners();
+      } else {
+        getAllCountryList = getAllCountryList;
+        notifyListeners();
+      }
     });
     return getAllCountryList;
   }

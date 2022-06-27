@@ -3,23 +3,24 @@ import 'dart:io';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 
-import '../models/get_all_country/get_all_country_model.dart';
+import '../models/get_all_league_in_country/get_all_league_in_country_model.dart';
 
-Future<GetCountryList?> getAllCountryListApi() async {
+Future<GetLeagueInCountry?> getAllLeagueInCountryApi() async {
   try {
-    GetCountryList? getAllCountryList;
+    GetLeagueInCountry? getLeagueInCountry;
     var request = http.Request(
         'GET',
         Uri.parse(
-            'https://www.thesportsdb.com/api/v1/json/2/all_countries.php'));
+            'https://www.thesportsdb.com/api/v1/json/2/search_all_leagues.php?c=England'));
 
     http.StreamedResponse response = await request.send();
 
     if (response.statusCode == 200) {
       var body = await response.stream.bytesToString();
+      print('All League In Country:');
       print(body);
-      getAllCountryList = getCountryListFromJson(body);
-      return getAllCountryList;
+      getLeagueInCountry = getLeagueInCountryFromJson(body);
+      return getLeagueInCountry;
     } else {
       print(response.reasonPhrase);
     }

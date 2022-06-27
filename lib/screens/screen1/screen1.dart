@@ -10,7 +10,11 @@ class Screen1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const Body(),
+      body: const SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: Body(),
+      ),
       bottomNavigationBar: const KBottomNavBar(),
     );
   }
